@@ -91,7 +91,7 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
     
     for bullet in red_bullets:
         bullet.x -= BULLET_VEL
-        if yellow_bullets.colliderect(bullet):
+        if yellow.colliderect(bullet):
             pygame.event.post(pygame.event.Event(YELLOW_HIT))
             red_bullets.remove(bullet)
         elif bullet.x < 0:
@@ -120,7 +120,7 @@ def main(): #define application with main
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False #set condition to close the loop or it won't be able to close. 
-                pygame.quite()            #red.x += 1 #set the red space ship to move 1 frame faster than default 60 using += 1       # draw_window(red, yellow)= draw out the red and yellow spaceship  #refresh the windows 
+                pygame.quit()            #red.x += 1 #set the red space ship to move 1 frame faster than default 60 using += 1       # draw_window(red, yellow)= draw out the red and yellow spaceship  #refresh the windows 
                             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LCTRL and len(yellow_bullets) < MAX_BULLETS :
